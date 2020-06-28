@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GroomandGlow</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+    text-emphasis: bold;
+    animation-name: exbgcolor;
+          animation-duration: 10s;
+}
+@keyframes exbgcolor {
+  from {background-color: black;}
+  to {background-color: lightcoral;}
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: gainsboro;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background:#F08080;
+  padding: 1px;
+  color: white;
+    animation-name: exbgcolor;
+          animation-duration: 10s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background-color: white;
+  height: 250px;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color:#F08080;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ .menu-log {
+            right: auto;
+            float: right;
+        }
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+    .book{
+        background-color:black;
+        position: relative;
+        width:35%;
+        color:snow;
+        height:60%;
+        float: right;
+        padding-left: 5px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        padding-right: 5px;
+        display: block;
+        right: 60px;
+       bottom: 5px;
+        
+    }
+input[type=text],input[type=email]
+    {
+         margin-left: 30px;
+        height: 21px;
+        width:40%;
+    }
+   input[type=time]
+    { margin-left: 40px;
+        height: 21px;
+        width:40%;
+    }
+    input[type=tel]
+    {
+        margin-left: 25px;
+        height: 21px;
+        width:40%;
+    }
+    input[type=date]
+    {
+         margin-left: 40px;
+       height: 21px;
+        width:40%;
+    }
+    input[type=radio]
+    {  margin-left: 30px;
+    }
+    input[type=checkbox]
+    {
+         margin-left: 40px;
+        
+    }
+    .select
+    {
+         margin-left: 25px;
+        height: 21px;
+        width:40%;
+    }
+    .progress
+    {
+         
+         margin-left: 50px;
+        height: 21px;
+        width:40%;
+    }
+    .textarea
+    {
+         
+         margin-left: 30px;
+        height: 21px;
+        width:40%;
+       
+        
+  
+}
+   
+    /* Full-width input fields */
+input[type=text1], input[type=password1] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: black;
+  color: white;
+  padding-right: 20px ;
+    padding-left: 15px;
+   padding-top: 10px;
+    padding-bottom: 10px;
+     font-size: 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+    height:30px;
+    animation-name: exbgcolor;
+          animation-duration: 10s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+    
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 100px;
+  top: 40px;
+  width: 30%; /* Full width */
+  height: 80%; /* Full height */
+ 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: gainsboro;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+    
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+    
+    footer {
+            width: 100%;
+            bottom: 0px;
+            background-color:black;
+            color: white;
+            position: absolute;
+            padding-top:5px;
+            padding-bottom:5px;
+            text-align:center;
+            font-size:15px;
+            font-weight:bold;
+           animation-name: exbgcolor;
+          animation-duration: 10s;
+        }
+    .loginbtn
+    {
+        height: 50%;
+        color: white;
+        background-color: lightcoral
+    }
+    row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+    .one
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+        left: 30px;
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 10px;
+        animation-name: co;
+        animation-duration: 4s;
+    }
+    .two
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+        left: 30px;
+        position: absolute;
+        margin-left: 350px;
+        margin-top: 10px;
+        animation-name: co1;
+        animation-duration: 4s;
+    }
+    .three
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+      left: 30px;
+        position: absolute;
+        margin-left: 650px;
+        margin-top: 10px;
+        animation-name: co;
+        animation-duration: 4s;
+    }
+    .four
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+       left: 30px;
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 285px;
+        animation-name: co1;
+        animation-duration: 4s;
+    }
+    .five
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+        left: 30px;
+        position: absolute;
+        margin-left: 350px;
+        margin-top: 285px;
+        animation-name: co;
+        animation-duration: 4s;
+    }
+    .six
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 40%;
+        left: 30px;
+        position: absolute;
+        margin-left: 650px;
+        margin-top: 285px;
+        animation-name: co1;
+        animation-duration: 4s;
+    }
+     .seven
+    {
+        background-color:white;
+        border: black;
+        color: lightcoral;
+        width:20%;
+        height: 80%;
+        left: 30px;
+        position: absolute;
+        margin-left: 1000px;
+        margin-top: 10px;
+        animation-name: co1s;
+        animation-duration: 4s;
+    }
+    @keyframes co1s {
+  from {background-color:lightgray;}
+  to {background-color:lightpink;}
+}
+    @keyframes co {
+  from {background-color:lightcyan;}
+  to {background-color:lemonchiffon;}
+}
+    @keyframes co1 {
+  from {background-color:lemonchiffon;}
+  to {background-color:lightcyan;}
+}
+    h7
+    {
+        font-size: 20px;
+    }
+    .bod
+    {
+        animation-name: excolor;
+          animation-duration: 4s;
+    }
+    @keyframes excolor {
+  from {background-color:bisque;}
+  to {background-color:beige;}
+}
+    .au
+    {
+        width: 70%;
+       height: 40px;
+        color: lightcoral;
+    }
+    .flip:hover
+    {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+    ol {
+  background-color: lavenderblush;
+
+}
+     .ol1 {
+  background-color: lavenderblush;
+  list-style-type: upper-roman;
+}
+
+ul {
+  background-color: lavender;
+  padding: 20px;
+}
+
+ol li {
+  background-color: cornsilk;
+  padding: 2px;
+  margin-left: 20px;
+}
+
+ul li {
+  background-color: cornsilk;
+  margin: 5px;
+}
+</style>
+</head>
+<body style="background-color: bisque" class="bod">
+
+
+ <div class="navbar">
+ <a href="home.html">HOME</a>
+  <a href="about.html">ABOUTUS</a>
+  <a href="packages.html">PACKAGES</a>
+  <a href="certificationprogram.html">PROGRAMS</a>
+  <div class="dropdown">
+    <button class="dropbtn">SERVICES
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h3>Services</h3>
+      </div>   
+      <div class="row">
+        <div class="column">
+            <center> 
+                <h3 style="color: darkblue" >Women</h3>
+                
+                <center>
+                     <a href="#">HairSpa</a>
+          <a href="#">Grooming</a>
+          <a href="#">BodySpa</a>
+                </center>
+         
+          </center>
+         
+        </div>
+        <div class="column">
+            <center>
+                <h3 style="color: darkblue">Men</h3>
+                <center>
+          <a href="#">HairSpa</a>
+          <a href="#">BodySpa</a>
+          <a href="#">Grooming</a>
+            </center>
+            </center>
+          
+        </div>
+        <div class="column">
+            <center>
+                    <h3 style="color: darkblue">Kids</h3>
+                <center> <a href="#">HairStyles</a>
+          <a href="#">Grooming</a>
+                </center>
+         </center>
+          
+        </div>
+          <div class="column">
+              <center>
+                   <h3 style="color: darkblue">Other</h3>
+                  <center>
+                      <a href="#">Wedding</a>
+          <a href="#">Customize</a>
+         <a href="#">Beauty Products</a>
+                  </center>
+          
+              </center>
+         
+          </div>
+      </div>
+    </div>
+  </div> 
+     <a href="blog.html">BLOG</a>
+     <a href="contact.html">CONTACT</a>
+     <div class="menu-log">
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LOGIN</button>
+        </div>
+</div>
+
+
+     <!-- Body section -->
+    <div class = "body_sec" >
+        <section id="Content" >
+             
+
+            
+            
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text1" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password1" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+   <div class="one">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> TIP 1</h7><br>
+               <img src="5.jpg" width="100%" , height="80px" alt="tip1">
+               <p> Never put concealer or foundation on your eyelids as a base, it will cause your eye makeup to crease. Use your fingers to apply your foundation if you want sheer coverage and a brush for medium to full coverage, Prep lids for any eye look with  that matches the lightest part of your face </p>
+           </center>
+          </span>
+       
+            </div>
+            
+            <div class="two">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> Morning Face Routine</h7><br>
+              <ul>
+  
+  <li>Cleanse</li>
+  <li>Tone</li>
+  <li>Serum Cola</li>
+  <li>Exfoliate</li>
+</ul>
+               
+           </center>
+          </span>
+       
+            </div>
+            
+            <div class="three">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> HairStyle Cost</h7><br>
+             
+<ol>
+  <li>HairColoring      ......Rs.1500</li>
+  <li>HairGroom         ......Rs.4000</li>
+  <li>HairSpa           ......Rs.400</li>
+</ol>
+               
+   <h7 style="background-color: white"> Facial Cost</h7><br>            
+<ol class="ol1">
+  <li>FruitFacial         ......Rs.200</li>
+  <li>GoldenMask           ......Rs.360</li>
+</ol>
+
+           </center>
+          </span>
+       
+            </div>
+             <div class="four">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> TIP 4</h7><br>
+             <video  width="100%" height="80px" alt="tip4" controls>
+                <source src="WhatsApp%20Video%202020-06-24%20at%206.42.46%20PM.mp4" type="video/mp4"></video>
+               <p> Use cool compresses under your eyes: try cucumbers, a chilled spoon, cold green tea bags and an ice pack. Use an under-eye mask with a cooling effect. .</p>
+           </center>
+          </span>
+       
+            </div>
+             <div class="five">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> TIP 5</h7><br>
+             
+               <audio controls class="au">
+  <source src="WhatsApp%20Audio%202020-06-24%20at%206.42.57%20PM.mpeg" type="audio/ogg">
+  </audio>
+               <p> In the class of makeup best practices 101, makeup artists recommend applying eye makeup first before moving on to face makeup with foundation first and then (and only then) concealer... To lighten your hair, not only do you have to wait until the hair molecules shrink.</p>
+           </center>
+          </span>
+       
+            </div>
+            
+                  <div class="six">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> TIP 6</h7><br>
+             <object data="3.jpg" width="100%" height="80px" alt="tip6"></object>
+               <p> Because it's not designed to! Hair dye is created to simply add color to your hair, not to lighten or remove color. ... To lighten your hair, not only do you have to wait until the hair molecules shrink, but depending on how light you're looking to go.</p>
+           </center>
+          </span>
+       
+            </div>         
+           
+            
+                  <div class="seven">
+       
+       <span>
+           <center>
+             <h7 style="background-color: white"> TIP 7</h7><br>
+              <img src="22.jpg" width="100%" , height="200px" alt="tip7" class="flip">
+               <p> Because it's not designed to! Hair dye is created to simply add color to your hair, not to lighten or remove color. ... To lighten your hair, not only do you have to wait until the hair molecules shrink, but depending on how light you're looking to go.</p>
+           </center>
+          </span>
+       
+            </div>  
+            
+
+       </section> 
+            
+    </div>
+     <!-- Footer Section -->
+    <footer>
+        <p><center><b>&copy;GROOM AND GLOW 2020</b></center></p></footer>
+</body>
+</html>
